@@ -1,19 +1,20 @@
-
-UserInput = input("Enter your name: ")
-print("Hello", UserInput)
+def compute_pay(hours, rate) :
+    print("In computepay", hours, rate)
+    if hours > 40:
+        reg = rate * hours
+        otp = (hours - 40.0) * (rate * 0.5)
+        pay = reg + otp
+    else:
+        pay = hours * rate
+    print("Returning", pay)
+    return pay
 
 hours_worked = input("Enter Hours: ")
 pay_rate = input("Rate: ")
 float_hours = float(hours_worked)
 float_rate = float(pay_rate)
 #print(float_hours, float_rate)
-if float_hours > 40:
-    #print("Overtime")
-    reg = float_rate * float_hours
-    otp = (float_hours - 40.0) * (float_rate * 0.5)
-    #print(reg,otp)
-    total_pay = reg + otp
-else:
-    #print("Regular")
-    total_pay = float(hours_worked) * float(pay_rate)
+
+total_pay = compute_pay(float_hours, float_rate)
+
 print("Pay: ", total_pay)
